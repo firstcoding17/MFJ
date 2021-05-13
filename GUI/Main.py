@@ -1,7 +1,8 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, qApp
+from PyQt5.QtGui import QIcon
 
-class MyApp(QWidget):
+class MyApp(QMainWindow):
 
     def __init__(self):
         super().__init__()
@@ -9,26 +10,26 @@ class MyApp(QWidget):
 
     #너비 1200 넓이 800
     def initUI(self):
-        label1 = QLabel('기능1', self)
-        label2 = QLabel('기능2', self)
-        label1.move(0,200)
-        label2.move(10,30)
 
-        Loding = QPushButton('Loding',self)
-        Loding.setToolTip('csv파일 불러오기')
-        Loding.move(0,0)
-        Loding.resize(50,30)
+        self.statusBar()
 
-        save = QPushButton('save',self)
-        save.setToolTip('현재 csv 상황 저장')
-        save.move(0,30)
-        save.resize(50,30)
+        menubar = self.menuBar()
+        menubar.setNativeMenuBar(False)
+
+        Filemenu = menubar.addMenu('&File')
+        Graph = menubar.addMenu('Graph')
+        Tool = menubar.addMenu('&Tool')
+        Help = menubar.addMenu("&Help")
+
+
+
+
+
 
 
         self.setWindowTitle('My First journey')
         self.move(0, 0)
         self.resize(1200, 800)
-
         self.show()
 
 
